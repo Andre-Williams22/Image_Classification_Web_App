@@ -1,25 +1,39 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8"/>
+    <title>Image Classifier</title>
     <!-- Load the latest version of TensorFlow.js -->
-    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
-    <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
-    <script src="https://unpkg.com/@tensorflow-models/knn-classifier"></script>
-    <link rel="Stylesheet" type="text/css" href="style.css">
+    <script src="https://unpkg.com/@tensorflow/tfjs@1.2.8/dist/tf.min.js"></script>
+    <script src="https://unpkg.com/@tensorflow-models/mobilenet@2.0.4/dist/mobilenet.min.js"></script>
+
+    <link rel='stylesheet' href='style.css'/>
   </head>
-  
   <body>
-    <center><h1>Image Classifier</h1></center>
-    <div id="console"></div>
-    <!-- Add an image that we will use to test -->
-    <center><video autoplay playinline muted id="webcam" width="400" height="400"></video></center>
-    <center><button id='class-a'>Add A</button></center>
-    <center><button id='class-b'>Add B</button></center>
-    <center><button id='class-c'>Add C</button></center>
-    <!-- Load index.js after the content of the page -->
+
+    <div class="page">
+      <div class="section header">
+        <h3>Image Classifier</h3>
+      </div>
+      <div class="section upload">
+        <!-- input is replaced by <label> for styling-->
+        <input type="file" id="file" accept="image/*" onchange="loadFile(event)" style="display: none;"/>
+        <label class="upload-button" for="file">Upload Your Image Here</label>
+      </div>
+      <div class="section img-display">
+        <!-- element for img display -->
+        <img id="img-output"/>
+      </div>
+      <div class="section submit">
+        <!-- element to trigger classification js function -->
+        <input type="submit" value="Classify This Image" id="classify"/>
+      </div>
+      <div class="section response">
+        <!-- display prediction -->
+        <div id="answer"></div>
+      </div>
+    </div>
+
     <script src="index.js"></script>
   </body>
-</html>
-
-<html>
-
 </html>
